@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react"
 import { Link, useHistory } from "react-router-dom"
+import LoginLogo from "../Images/LoginLogo.png"
 import "./Login.css"
 
 export const Login = () => {
@@ -48,7 +49,9 @@ export const Login = () => {
             </dialog>
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Routinely</h1>
+                    <h1>
+                        <img src={LoginLogo} alt="logo" />
+                    </h1>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
                         <input
