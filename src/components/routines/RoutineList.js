@@ -1,14 +1,17 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { RoutineContext } from "./RoutineProvider"
 import { UserContext } from "../users/UserProvider"
 import { RoutineItem } from "./RoutineItem"
 import "./Routines.css"
-import { useHistory } from "react-router-dom"
+import { useHistory, useParams } from "react-router-dom"
 
 export const RoutineList = () => {
-    const { routines, getRoutines } = useContext(RoutineContext)
+    const { routines, getRoutines, getRoutineById } = useContext(RoutineContext)
     const { users, getUsers } = useContext(UserContext)
     const history = useHistory()
+
+    const [routine, setRoutine] = useState({})
+    const { routineId } = useParams()
 
     const currentUser = users.find((user) => {
         if (user.id === parseInt(sessionStorage.getItem("routinely_user")))
@@ -17,6 +20,12 @@ export const RoutineList = () => {
 
     useEffect(() => {
         getRoutines().then(getUsers)
+    }, [])
+
+    useEffect(() => {
+        getRoutineById(routineId).then((response) => {
+            setRoutine(response)
+        })
     }, [])
 
     return (

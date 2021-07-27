@@ -21,9 +21,11 @@ export const RoutineItem = ({ routine }) => {
             <>
                 <article className="routine">
                     <div className="routine__description">
-                        <Link to={`/tasks/${routine.id}`}>
-                            <h2 className="routine__label">{routine.label}</h2>
-                        </Link>
+                        <h2 className="routine__label">
+                            <Link to={`/tasks/${routine.id}`}>
+                                {routine.label}
+                            </Link>
+                        </h2>
                     </div>
                     <div className="button">
                         <button
