@@ -1,18 +1,48 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import React, { useContext, useState, useEffect } from "react"
+import { Link, useHistory, useParams } from "react-router-dom"
+import { RoutineContext } from "./RoutineProvider"
 
 export const RoutineItem = ({ routine }) => {
+    const { removeRoutine, getRoutineById } = useContext(RoutineContext)
+    const history = useHistory()
+
+    const [, setRoutine] = useState({})
+    const { routineId } = useParams()
+
+    useEffect(() => {
+        getRoutineById(routineId).then((res) => {
+            setRoutine(res)
+        })
+    }, [])
+
     const customFeed =
         routine.userId ===
         parseInt(sessionStorage.getItem("routinely_user")) ? (
             <>
-                <Link to={`/routines/tasks/${routine.id}`}>
-                    <article className="routine">
-                        <div className="routine__description">
+                <article className="routine">
+                    <div className="routine__description">
+                        <Link to={`/tasks/${routine.id}`}>
                             <h2 className="routine__label">{routine.label}</h2>
-                        </div>
-                    </article>
-                </Link>
+                        </Link>
+                    </div>
+                    <div className="button">
+                        <button
+                            onClick={() => {
+                                removeRoutine(routine.id)
+                                history.push("/")
+                            }}
+                        >
+                            Delete
+                        </button>
+                        <button
+                            onClick={() => {
+                                history.push(`/routines/edit/${routine.id}`)
+                            }}
+                        >
+                            Edit
+                        </button>
+                    </div>
+                </article>
             </>
         ) : (
             ""
