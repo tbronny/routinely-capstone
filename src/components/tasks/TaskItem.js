@@ -3,26 +3,30 @@ import { Link, useHistory, useParams } from "react-router-dom"
 import { TaskContext } from "./TaskProvider"
 import { RoutineContext } from "../routines/RoutineProvider"
 
-export const TaskItem = () => {
-    const { getRoutineById } = useContext(RoutineContext)
+export const TaskItem = ({ task }) => {
+    const { removeTask } = useContext(TaskContext)
     const history = useHistory()
-
-    const [routine, setRoutine] = useState({})
-    const { routineId } = useParams()
-
-    useEffect(() => {
-        getRoutineById(routineId).then((res) => {
-            setRoutine(res)
-        })
-    }, [])
 
     return (
         <article className="task">
-            <h2 className="task__label">
-                {routine.tasks?.map((task) => {
-                    return task.label
-                })}
-            </h2>
+            <h2 className="task__label">{task.label}</h2>
+            <div className="button">
+                <button
+                    onClick={() => {
+                        removeTask(task.id)
+                        history.push("/tasks")
+                    }}
+                >
+                    Delete
+                </button>
+                <button
+                    onClick={() => {
+                        history.push(`/tasks/edit/${task.id}`)
+                    }}
+                >
+                    Edit
+                </button>
+            </div>
         </article>
     )
 }

@@ -5,8 +5,8 @@ import { RoutineList } from "./routines/RoutineList"
 import { RoutineProvider } from "./routines/RoutineProvider"
 import { UserProvider } from "./users/UserProvider"
 import { TaskProvider } from "./tasks/TaskProvider"
+import { TaskForm } from "./tasks/TaskForm"
 import { TaskList } from "./tasks/TaskList"
-import { TaskItem } from "./tasks/TaskItem"
 
 export const ApplicationViews = () => {
     return (
@@ -24,7 +24,13 @@ export const ApplicationViews = () => {
                             <RoutineForm />
                         </Route>
                         <Route exact path="/tasks/:routineId(\d+)">
-                            <TaskItem />
+                            <TaskList />
+                        </Route>
+                        <Route exact path="/tasks/create">
+                            <TaskForm />
+                        </Route>
+                        <Route exact path="/tasks/edit/:taskId(\d+)">
+                            <TaskForm />
                         </Route>
                     </TaskProvider>
                 </RoutineProvider>
