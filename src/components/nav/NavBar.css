@@ -1,8 +1,11 @@
-nav {
-    height: 60px;
-}
-
 .nav-item {
     display: flex;
     align-items: center;
+    padding-left: 50px;
+}
+
+.nav-link {
+    margin-top: 0;
+    padding-top: 0;
+    padding-right: 30px;
 }

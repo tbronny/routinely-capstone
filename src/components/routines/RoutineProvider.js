@@ -6,8 +6,8 @@ export const RoutineProvider = (props) => {
     const [routines, setRoutines] = useState([])
 
     const getRoutineById = (id) => {
-        return fetch(`http://localhost:8088/routines/${id}?_expand=tasks`).then(
-            (res) => res.json()
+        return fetch(`http://localhost:8088/routines/${id}`).then((res) =>
+            res.json()
         )
     }
 
@@ -21,7 +21,7 @@ export const RoutineProvider = (props) => {
         return fetch("http://localhost:8088/routines?_expand=user", {
             method: "POST",
             headers: {
-                "Content-Type": "applicatino/json",
+                "Content-Type": "application/json",
             },
             body: JSON.stringify(routine),
         }).then(getRoutines)
@@ -29,6 +29,16 @@ export const RoutineProvider = (props) => {
     const removeRoutine = (id) => {
         return fetch(`http://localhost:8088/routines/${id}`, {
             method: "DELETE",
+        }).then(getRoutines)
+    }
+
+    const updateRoutine = (routine) => {
+        return fetch(`http://localhost:8088/routines/${routine.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(routine),
         }).then(getRoutines)
     }
 
@@ -40,6 +50,7 @@ export const RoutineProvider = (props) => {
                 addRoutine,
                 removeRoutine,
                 getRoutineById,
+                updateRoutine,
             }}
         >
             {props.children}
