@@ -44,13 +44,13 @@ export const TaskForm = () => {
                 updateTask({
                     id: task.id,
                     label: task.label,
-                    routineId: parseInt(task.routineId),
+                    routineId: task.routineId,
                 }).then(() => history.push(`/tasks/${task.id}`))
             } else {
                 addTask({
                     label: task.label,
-                    routineId: parseInt(task.routineId),
-                }).then(() => history.push("/tasks"))
+                    routineId: task.routineId,
+                }).then(() => history.push(`/tasks/${routineId}`))
             }
         }
     }

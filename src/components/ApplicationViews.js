@@ -26,7 +26,7 @@ export const ApplicationViews = () => {
                         <Route exact path="/tasks/:routineId(\d+)">
                             <TaskList />
                         </Route>
-                        <Route exact path="/tasks/create">
+                        <Route exact path="/tasks/create/:routineId(\d+)">
                             <TaskForm />
                         </Route>
                         <Route exact path="/tasks/edit/:taskId(\d+)">
