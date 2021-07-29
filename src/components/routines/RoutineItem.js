@@ -22,7 +22,7 @@ export const RoutineItem = ({ routine }) => {
                 <article className="routine">
                     <div className="routine__description">
                         <h2 className="routine__label">
-                            <Link to={`/tasks/${routine.id}`}>
+                            <Link className="link" to={`/tasks/${routine.id}`}>
                                 {routine.label}
                             </Link>
                         </h2>

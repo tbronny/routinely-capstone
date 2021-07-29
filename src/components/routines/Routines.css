@@ -26,6 +26,11 @@
     margin: 50px;
 }
 
+.link {
+    display: block;
+    color: black;
+}
+
 /* .column {
     float: left;
     width: 50%;
