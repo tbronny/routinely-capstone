@@ -7,6 +7,8 @@ export const TaskItem = ({ task }) => {
     const { removeTask } = useContext(TaskContext)
     const history = useHistory()
 
+    const { routineId } = useParams()
+
     return (
         <article className="task">
             <h2 className="task__label">{task.label}</h2>
@@ -14,7 +16,7 @@ export const TaskItem = ({ task }) => {
                 <button
                     onClick={() => {
                         removeTask(task.id)
-                        history.push("/tasks")
+                        history.push(`/tasks/${routineId}`)
                     }}
                 >
                     Delete

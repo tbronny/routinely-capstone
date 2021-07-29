@@ -4,6 +4,7 @@ import { ApplicationViews } from "./ApplicationViews"
 import { NavBar } from "./nav/NavBar"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
+import { UserProvider } from "../components/users/UserProvider"
 import "./Routinely.css"
 
 export const Routinely = () => (
@@ -13,8 +14,10 @@ export const Routinely = () => (
                 if (sessionStorage.getItem("routinely_user")) {
                     return (
                         <>
-                            <NavBar />
-                            <ApplicationViews />
+                            <UserProvider>
+                                <NavBar />
+                                <ApplicationViews />
+                            </UserProvider>
                         </>
                     )
                 } else {
