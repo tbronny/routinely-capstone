@@ -20,10 +20,12 @@ export const TaskList = () => {
         return task.routineId === parseInt(routineId)
     })
 
+    const firstTask = filteredTasks[0]
+
     return (
         <>
             <div className="task__head">
-                <h1>Tasks</h1>
+                <h1>{firstTask.routine?.label}</h1>
                 <button
                     onClick={() => {
                         history.push(`/tasks/create/${routineId}`)

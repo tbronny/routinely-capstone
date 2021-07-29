@@ -14,18 +14,27 @@ export const ApplicationViews = () => {
             <UserProvider>
                 <RoutineProvider>
                     <TaskProvider>
-                        <Route exact path="/">
-                            <RoutineList />
-                        </Route>
+                        <section className="row">
+                            <div className="column">
+                                <Route path="/">
+                                    <RoutineList />
+                                </Route>
+                            </div>
+                            <div className="column">
+                                <Route path="/tasks/:routineId(\d+)">
+                                    <TaskList />
+                                </Route>
+                            </div>
+                        </section>
                         <Route exact path="/routines/create">
                             <RoutineForm />
                         </Route>
                         <Route exact path="/routines/edit/:routineId(\d+)">
                             <RoutineForm />
                         </Route>
-                        <Route exact path="/tasks/:routineId(\d+)">
+                        {/* <Route path="/tasks/:routineId(\d+)">
                             <TaskList />
-                        </Route>
+                        </Route> */}
                         <Route exact path="/tasks/create/:routineId(\d+)">
                             <TaskForm />
                         </Route>
