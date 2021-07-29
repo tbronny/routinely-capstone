@@ -45,11 +45,11 @@ export const TaskForm = () => {
                     id: task.id,
                     label: task.label,
                     routineId: task.routineId,
-                }).then(() => history.push(`/tasks/${task.id}`))
+                }).then(() => history.push(`/tasks/${task.routineId}`))
             } else {
                 addTask({
                     label: task.label,
-                    routineId: task.routineId,
+                    routineId: parseInt(routineId),
                 }).then(() => history.push(`/tasks/${routineId}`))
             }
         }
