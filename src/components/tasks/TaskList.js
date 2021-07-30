@@ -1,27 +1,32 @@
 import React, { useContext, useEffect, useState } from "react"
 import { TaskContext } from "./TaskProvider"
+import { RoutineContext } from "../routines/RoutineProvider"
 import { TaskItem } from "./TaskItem"
 import { useParams, useHistory } from "react-router-dom"
 import "./Tasks.css"
 
 export const TaskList = () => {
     const { tasks, getTasks } = useContext(TaskContext)
+    const { routines, getRoutines } = useContext(RoutineContext)
     const history = useHistory()
     const { routineId } = useParams()
 
     useEffect(() => {
-        getTasks()
+        getTasks().then(getRoutines)
     }, [])
 
     const filteredTasks = tasks.filter(
         (task) => task.routineId === parseInt(routineId)
     )
 
+    const filteredRoutine = routines.find(
+        (routine) => routine.id === parseInt(routineId)
+    )
+
     return (
         <>
             <div className="task__head">
-                {/* <h1>{filteredTasks[0].routine?.label}</h1> */}
-                <h1>Tasks</h1>
+                <h1>{filteredRoutine.label}</h1>
                 <svg
                     onClick={() => {
                         history.push(`/tasks/create/${routineId}`)

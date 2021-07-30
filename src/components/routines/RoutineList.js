@@ -5,20 +5,11 @@ import "./Routines.css"
 import { useHistory, useParams } from "react-router-dom"
 
 export const RoutineList = () => {
-    const { routines, getRoutines, getRoutineById } = useContext(RoutineContext)
+    const { routines, getRoutines } = useContext(RoutineContext)
     const history = useHistory()
-
-    const [, setRoutine] = useState({})
-    const { routineId } = useParams()
 
     useEffect(() => {
         getRoutines()
-    }, [])
-
-    useEffect(() => {
-        getRoutineById(routineId).then((response) => {
-            setRoutine(response)
-        })
     }, [])
 
     return (
