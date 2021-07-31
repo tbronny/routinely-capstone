@@ -7,6 +7,8 @@ import { UserProvider } from "./users/UserProvider"
 import { TaskProvider } from "./tasks/TaskProvider"
 import { TaskForm } from "./tasks/TaskForm"
 import { TaskList } from "./tasks/TaskList"
+import { CelebRoutineProvider } from "./celebRoutines/CelebRoutineProvider"
+import { CelebRoutineList } from "./celebRoutines/CelebRoutineList"
 
 export const ApplicationViews = () => {
     return (
@@ -14,36 +16,42 @@ export const ApplicationViews = () => {
             <UserProvider>
                 <RoutineProvider>
                     <TaskProvider>
-                        <section className="row">
-                            <div className="column">
-                                <Route path="/">
-                                    <RoutineList />
-                                </Route>
-                            </div>
-                            <div className="column">
-                                <Route path="/tasks/:routineId(\d+)">
-                                    <TaskList />
-                                </Route>
-                            </div>
-                        </section>
-                        <Route path="/routines/create">
+                        {/* <section className="row">
+                            <div className="column"> */}
+                        <Route exact path="/">
+                            <RoutineList />
+                        </Route>
+                        {/* </div>
+                            <div className="column"> */}
+                        <Route exact path="/tasks/:routineId(\d+)">
+                            <TaskList />
+                        </Route>
+                        {/* </div>
+                        </section> */}
+                        <Route exact path="/routines/create">
                             <RoutineForm />
                         </Route>
-                        <Route path="/routines/edit/:routineId(\d+)">
+                        <Route exact path="/routines/edit/:routineId(\d+)">
                             <RoutineForm />
                         </Route>
                         {/* <Route path="/tasks/:routineId(\d+)">
                             <TaskList />
                         </Route> */}
-                        <Route path="/tasks/create/:routineId(\d+)">
+                        <Route exact path="/tasks/create/:routineId(\d+)">
                             <TaskForm />
                         </Route>
-                        <Route path="/tasks/edit/:taskId(\d+)">
+                        <Route exact path="/tasks/edit/:taskId(\d+)">
                             <TaskForm />
                         </Route>
                     </TaskProvider>
                 </RoutineProvider>
             </UserProvider>
+
+            <CelebRoutineProvider>
+                <Route exact path="/Explore">
+                    <CelebRoutineList />
+                </Route>
+            </CelebRoutineProvider>
         </>
     )
 }

@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useEffect } from "react"
 import { RoutineContext } from "./RoutineProvider"
 import { RoutineItem } from "./RoutineItem"
 import "./Routines.css"
-import { useHistory, useParams } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 
 export const RoutineList = () => {
     const { routines, getRoutines } = useContext(RoutineContext)

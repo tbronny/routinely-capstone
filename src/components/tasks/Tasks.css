@@ -10,9 +10,9 @@
     flex-direction: row;
     justify-content: space-between;
     margin: 3em;
-    padding: 1em;
+    padding: 2em;
     border: 1px solid black;
-    border-radius: 25px;
+    border-radius: 30px;
 }
 
 .task__description {

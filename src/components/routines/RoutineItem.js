@@ -1,5 +1,5 @@
-import React, { useContext, useState, useEffect } from "react"
-import { Link, useHistory, useParams } from "react-router-dom"
+import React, { useContext } from "react"
+import { Link, useHistory } from "react-router-dom"
 import { RoutineContext } from "./RoutineProvider"
 
 export const RoutineItem = ({ routine }) => {
