@@ -50,7 +50,11 @@ export const Login = () => {
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
                     <h1>
-                        <img src={LoginLogo} alt="logo" />
+                        <img
+                            src={LoginLogo}
+                            className="login_image"
+                            alt="logo"
+                        />
                     </h1>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
@@ -68,11 +72,10 @@ export const Login = () => {
                     <fieldset>
                         <button type="submit">Sign in</button>
                     </fieldset>
+                    <Link to="/register">Register for an account</Link>
                 </form>
             </section>
-            <section className="link--register">
-                <Link to="/register">Register for an account</Link>
-            </section>
+            <section className="link--register"></section>
         </main>
     )
 }
