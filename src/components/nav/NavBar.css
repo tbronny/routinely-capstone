@@ -11,6 +11,6 @@
 }
 
 .nav-link:hover {
-    background-color: #111;
-    color: white;
+    /* background-color: #111; */
+    color: rgba(255, 255, 255, 0.596);
 }

@@ -1,19 +1,10 @@
-import React, { useContext, useState, useEffect } from "react"
-import { Link, useHistory, useParams } from "react-router-dom"
+import React, { useContext } from "react"
+import { Link, useHistory } from "react-router-dom"
 import { RoutineContext } from "./RoutineProvider"
 
 export const RoutineItem = ({ routine }) => {
-    const { removeRoutine, getRoutineById } = useContext(RoutineContext)
+    const { removeRoutine } = useContext(RoutineContext)
     const history = useHistory()
-
-    const [, setRoutine] = useState({})
-    const { routineId } = useParams()
-
-    useEffect(() => {
-        getRoutineById(routineId).then((res) => {
-            setRoutine(res)
-        })
-    }, [])
 
     const customFeed =
         routine.userId ===
@@ -22,7 +13,7 @@ export const RoutineItem = ({ routine }) => {
                 <article className="routine">
                     <div className="routine__description">
                         <h2 className="routine__label">
-                            <Link to={`/tasks/${routine.id}`}>
+                            <Link className="link" to={`/tasks/${routine.id}`}>
                                 {routine.label}
                             </Link>
                         </h2>

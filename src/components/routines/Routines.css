@@ -10,9 +10,9 @@
     flex-direction: row;
     justify-content: space-between;
     margin: 3em;
-    padding: 1em;
+    padding: 2em;
     border: 1px solid black;
-    border-radius: 25px;
+    border-radius: 30px;
 }
 
 .routine__description {
@@ -26,14 +26,12 @@
     margin: 50px;
 }
 
-/* .column {
-    float: left;
-    width: 50%;
-    padding: 15px;
+.link {
+    display: block;
+    color: black;
 }
 
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-} */
+.link:hover {
+    color: dimgrey;
+    text-decoration: none;
+}

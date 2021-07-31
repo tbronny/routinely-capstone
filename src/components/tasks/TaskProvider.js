@@ -1,12 +1,9 @@
 import React, { useState, createContext } from "react"
-import { useParams } from "react-router-dom"
 
 export const TaskContext = createContext()
 
 export const TaskProvider = (props) => {
     const [tasks, setTasks] = useState([])
-
-    const { routineId } = useParams()
 
     const getTaskById = (id) => {
         return fetch(`http://localhost:8088/tasks/${id}`).then((res) =>

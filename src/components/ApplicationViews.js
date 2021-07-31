@@ -7,6 +7,8 @@ import { UserProvider } from "./users/UserProvider"
 import { TaskProvider } from "./tasks/TaskProvider"
 import { TaskForm } from "./tasks/TaskForm"
 import { TaskList } from "./tasks/TaskList"
+import { CelebRoutineProvider } from "./celebRoutines/CelebRoutineProvider"
+import { CelebRoutineList } from "./celebRoutines/CelebRoutineList"
 
 export const ApplicationViews = () => {
     return (
@@ -14,18 +16,18 @@ export const ApplicationViews = () => {
             <UserProvider>
                 <RoutineProvider>
                     <TaskProvider>
-                        <section className="row">
-                            <div className="column">
-                                <Route path="/">
-                                    <RoutineList />
-                                </Route>
-                            </div>
-                            <div className="column">
-                                <Route path="/tasks/:routineId(\d+)">
-                                    <TaskList />
-                                </Route>
-                            </div>
-                        </section>
+                        {/* <section className="row">
+                            <div className="column"> */}
+                        <Route exact path="/">
+                            <RoutineList />
+                        </Route>
+                        {/* </div>
+                            <div className="column"> */}
+                        <Route exact path="/tasks/:routineId(\d+)">
+                            <TaskList />
+                        </Route>
+                        {/* </div>
+                        </section> */}
                         <Route exact path="/routines/create">
                             <RoutineForm />
                         </Route>
@@ -44,6 +46,12 @@ export const ApplicationViews = () => {
                     </TaskProvider>
                 </RoutineProvider>
             </UserProvider>
+
+            <CelebRoutineProvider>
+                <Route exact path="/Explore">
+                    <CelebRoutineList />
+                </Route>
+            </CelebRoutineProvider>
         </>
     )
 }
