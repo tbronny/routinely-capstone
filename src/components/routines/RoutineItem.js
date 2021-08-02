@@ -1,12 +1,13 @@
 import React, { useContext } from "react"
 import { Link, useHistory } from "react-router-dom"
+import { CelebRoutineItem } from "../celebRoutines/CelebRoutineItem"
 import { RoutineContext } from "./RoutineProvider"
 
 export const RoutineItem = ({ routine }) => {
     const { removeRoutine } = useContext(RoutineContext)
     const history = useHistory()
 
-    const customFeed =
+    let customFeed =
         routine.userId ===
         parseInt(sessionStorage.getItem("routinely_user")) ? (
             <>

@@ -7,7 +7,14 @@ export const CelebRoutineItem = ({ celebRoutine }) => {
     return (
         <article className="celebRoutine">
             <div className="celebRoutine__description">
-                <h2 className="celebRoutine__label">{celebRoutine.label}</h2>
+                <h2 className="celebRoutine__label">
+                    <Link
+                        className="link"
+                        to={`/celebTasks/${celebRoutine.id}`}
+                    >
+                        {celebRoutine.label}
+                    </Link>
+                </h2>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="50"
