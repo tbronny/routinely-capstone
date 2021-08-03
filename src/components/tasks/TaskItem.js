@@ -12,6 +12,7 @@ export const TaskItem = ({ task }) => {
     return (
         <article className="task">
             <h2 className="task__label">{task.label}</h2>
+
             <div className="button">
                 <button
                     onClick={() => {
@@ -29,6 +30,8 @@ export const TaskItem = ({ task }) => {
                     Edit
                 </button>
             </div>
+
+            <h2>{task.time}m</h2>
         </article>
     )
 }

@@ -11,8 +11,8 @@
     justify-content: space-between;
     margin: 3em;
     padding: 2em;
-    border-radius: 30px;
-    background-color: lightslategrey;
+    border-radius: 20px;
+    background-color: rgb(104, 118, 133);
 }
 
 .routine__description {
@@ -28,10 +28,10 @@
 
 .link {
     display: block;
-    color: black;
+    color: whitesmoke;
 }
 
 .link:hover {
-    color: dimgrey;
+    color: darkgray;
     text-decoration: none;
 }
