@@ -8,6 +8,7 @@ export const TaskForm = () => {
     const { routines, getRoutines } = useContext(RoutineContext)
     const [task, setTask] = useState({
         label: "",
+        time: 0,
         routineId: 0,
     })
     const [isLoading, setIsLoading] = useState(true)
@@ -44,11 +45,13 @@ export const TaskForm = () => {
                 updateTask({
                     id: task.id,
                     label: task.label,
+                    time: parseInt(task.time),
                     routineId: task.routineId,
                 }).then(() => history.push(`/tasks/${task.routineId}`))
             } else {
                 addTask({
                     label: task.label,
+                    time: parseInt(task.time),
                     routineId: parseInt(routineId),
                 }).then(() => history.push(`/tasks/${routineId}`))
             }
@@ -69,6 +72,21 @@ export const TaskForm = () => {
                         className="form-control"
                         placeholder="Task Name"
                         value={task.label}
+                        onChange={handleInputChange}
+                    />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="time">Minutes For Task:</label>
+                    <input
+                        type="number"
+                        id="time"
+                        required
+                        autoFocus
+                        className="form-control"
+                        placeholder="0"
+                        defaultValue={task.time}
                         onChange={handleInputChange}
                     />
                 </div>

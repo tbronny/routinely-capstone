@@ -1,13 +1,13 @@
-.routines {
+.celebTasks {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.routine {
+.celebTask {
     flex-basis: 30%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     margin: 3em;
     padding: 2em;
@@ -15,23 +15,13 @@
     background-color: rgb(104, 118, 133);
 }
 
-.routine__description {
+.celebTask__description {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
-.routine__head {
+.celebTask__head {
     display: flex;
     justify-content: space-between;
     margin: 50px;
-}
-
-.link {
-    display: block;
-    color: whitesmoke;
-}
-
-.link:hover {
-    color: darkgray;
-    text-decoration: none;
 }
