@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { Link, useHistory } from "react-router-dom"
 import { CelebRoutineItem } from "../celebRoutines/CelebRoutineItem"
 import { TaskContext } from "../tasks/TaskProvider"
@@ -13,22 +13,21 @@ export const RoutineItem = ({ routine }) => {
         getTasks()
     }, [])
 
-    const currentRoutine = () => {
-        if (
-            routine.userId ===
-            parseInt(sessionStorage.getItem("routinely_user"))
-        ) {
-            return (
-                <>
-                    {routine.tasks?.map((task) => {
-                        return parseInt(task.time)
-                    })}
-                </>
-            )
-        }
+    const currentTasks = tasks.filter((task) => routine.id === task.routineId)
+
+    const tasksArr = currentTasks.map((task) => {
+        return task.time
+    })
+
+    let total = 0
+
+    for (let i = 0; i < tasksArr.length; i++) {
+        total += tasksArr[i]
     }
 
-    const tasksArr = currentRoutine()
+    let totalHours = total / 60
+
+    let totalMinutes = Math.floor(total % 60)
 
     let customFeed =
         routine.userId ===
@@ -41,7 +40,12 @@ export const RoutineItem = ({ routine }) => {
                                 {routine.label}
                             </Link>
                         </h2>
-                        {tasksArr}
+                    </div>
+
+                    <div className="routine__time">
+                        <h4>
+                            ~{Math.floor(totalHours)}h {totalMinutes}m
+                        </h4>
                     </div>
                     <div className="button">
                         <button

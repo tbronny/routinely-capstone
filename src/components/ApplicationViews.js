@@ -20,18 +20,9 @@ export const ApplicationViews = () => {
                     <TaskProvider>
                         <CelebRoutineProvider>
                             <CelebTaskProvider>
-                                {/* <section className="row">
-                                    <div className="column"> */}
                                 <Route exact path="/">
                                     <RoutineList />
                                 </Route>
-                                {/* </div>
-                                    <div className="column"> */}
-                                <Route exact path="/tasks/:routineId(\d+)">
-                                    <TaskList />
-                                </Route>
-                                {/* </div>
-                                </section> */}
                                 <Route exact path="/routines/create">
                                     <RoutineForm />
                                 </Route>
@@ -41,9 +32,9 @@ export const ApplicationViews = () => {
                                 >
                                     <RoutineForm />
                                 </Route>
-                                {/* <Route path="/tasks/:routineId(\d+)">
+                                <Route exact path="/tasks/:routineId(\d+)">
                                     <TaskList />
-                                </Route> */}
+                                </Route>
                                 <Route
                                     exact
                                     path="/tasks/create/:routineId(\d+)"

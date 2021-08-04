@@ -16,21 +16,6 @@ export const RoutineList = () => {
         getRoutines().then(getCelebRoutines)
     }, [])
 
-    // const savedRoutines = celebRoutines.filter(
-    //     (celebRoutine) =>
-    //         celebRoutine.userId ===
-    //         parseInt(sessionStorage.getItem("routinely_user"))
-    // )
-
-    // const addedRoutine = savedRoutines.map((celebRoutine) => {
-    //     return (
-    //         <CelebRoutineItem
-    //             key={celebRoutine.id}
-    //             celebRoutine={celebRoutine}
-    //         />
-    //     )
-    // })
-
     return (
         <>
             <div className="routine__head">
