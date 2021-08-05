@@ -3,17 +3,13 @@ import { RoutineContext } from "./RoutineProvider"
 import { RoutineItem } from "./RoutineItem"
 import "./Routines.css"
 import { useHistory } from "react-router-dom"
-import { CelebRoutineList } from "../celebRoutines/CelebRoutineList"
-import { CelebRoutineContext } from "../celebRoutines/CelebRoutineProvider"
-import { CelebRoutineItem } from "../celebRoutines/CelebRoutineItem"
 
 export const RoutineList = () => {
     const { routines, getRoutines } = useContext(RoutineContext)
-    const { celebRoutines, getCelebRoutines } = useContext(CelebRoutineContext)
     const history = useHistory()
 
     useEffect(() => {
-        getRoutines().then(getCelebRoutines)
+        getRoutines()
     }, [])
 
     return (
