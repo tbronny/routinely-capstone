@@ -1,35 +1,33 @@
-import React, { useContext, useState, useEffect } from "react"
-import { Link, useHistory, useParams } from "react-router-dom"
+import React, { useContext } from "react"
+import { useHistory, useParams } from "react-router-dom"
 import { TaskContext } from "./TaskProvider"
-import { RoutineContext } from "../routines/RoutineProvider"
+import Swal from "sweetalert2"
 
 export const TaskItem = ({ task }) => {
     const { removeTask } = useContext(TaskContext)
     const history = useHistory()
 
     const { routineId } = useParams()
-
     return (
-        <article className="task">
-            <h2 className="task__label">{task.label}</h2>
-
-            <div className="button">
-                <button
-                    onClick={() => {
+        <article
+            className="task"
+            onClick={() => {
+                Swal.fire({
+                    showDenyButton: true,
+                    showCancelButton: true,
+                    confirmButtonText: `Edit`,
+                    denyButtonText: `Delete`,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        history.push(`/tasks/edit/${task.id}`)
+                    } else if (result.isDenied) {
                         removeTask(task.id)
                         history.push(`/tasks/${routineId}`)
-                    }}
-                >
-                    Delete
-                </button>
-                <button
-                    onClick={() => {
-                        history.push(`/tasks/edit/${task.id}`)
-                    }}
-                >
-                    Edit
-                </button>
-            </div>
+                    }
+                })
+            }}
+        >
+            <h2 className="task__label">{task.label}</h2>
 
             <h2>{task.time}m</h2>
         </article>

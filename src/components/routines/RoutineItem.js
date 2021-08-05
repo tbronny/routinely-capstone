@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from "react"
-import { Link, useHistory } from "react-router-dom"
-import { CelebRoutineItem } from "../celebRoutines/CelebRoutineItem"
+import React, { useContext, useEffect } from "react"
+import { useHistory } from "react-router-dom"
 import { TaskContext } from "../tasks/TaskProvider"
 import { RoutineContext } from "./RoutineProvider"
+import Swal from "sweetalert2"
 
 export const RoutineItem = ({ routine }) => {
     const { removeRoutine } = useContext(RoutineContext)
@@ -33,36 +33,49 @@ export const RoutineItem = ({ routine }) => {
         routine.userId ===
         parseInt(sessionStorage.getItem("routinely_user")) ? (
             <>
-                <article className="routine">
+                <article
+                    className="routine"
+                    onClick={(event) => {
+                        if (event.target !== event.currentTarget) return
+                        history.push(`/tasks/${routine.id}`)
+                    }}
+                >
                     <div className="routine__description">
-                        <h2 className="routine__label">
-                            <Link className="link" to={`/tasks/${routine.id}`}>
-                                {routine.label}
-                            </Link>
-                        </h2>
+                        <h2 className="routine__label">{routine.label}</h2>
+                        <h5 className="routine__time">
+                            ~{Math.floor(totalHours)}h {totalMinutes}m
+                        </h5>
                     </div>
 
-                    <div className="routine__time">
-                        <h4>
-                            ~{Math.floor(totalHours)}h {totalMinutes}m
-                        </h4>
-                    </div>
-                    <div className="button">
-                        <button
+                    <div className="routine__options">
+                        <svg
                             onClick={() => {
-                                removeRoutine(routine.id)
-                                history.push("/")
+                                Swal.fire({
+                                    title: "Do you want to save the changes?",
+                                    showDenyButton: true,
+                                    showCancelButton: true,
+                                    confirmButtonText: `Edit`,
+                                    denyButtonText: `Delete`,
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        history.push(
+                                            `/routines/edit/${routine.id}`
+                                        )
+                                    } else if (result.isDenied) {
+                                        removeRoutine(routine.id)
+                                        history.push("/")
+                                    }
+                                })
                             }}
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="48"
+                            height="32"
+                            fill="currentColor"
+                            class="bi bi-three-dots"
+                            viewBox="0 0 16 16"
                         >
-                            Delete
-                        </button>
-                        <button
-                            onClick={() => {
-                                history.push(`/routines/edit/${routine.id}`)
-                            }}
-                        >
-                            Edit
-                        </button>
+                            <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+                        </svg>
                     </div>
                 </article>
             </>
