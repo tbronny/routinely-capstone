@@ -26,7 +26,7 @@ export const TaskList = () => {
     return (
         <>
             <div className="task__head">
-                <h1>{filteredRoutine.label}</h1>
+                <h1>{filteredRoutine?.label}</h1>
                 <svg
                     onClick={() => {
                         history.push(`/tasks/create/${routineId}`)
