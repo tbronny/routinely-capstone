@@ -51,7 +51,6 @@ export const RoutineItem = ({ routine }) => {
                         <svg
                             onClick={() => {
                                 Swal.fire({
-                                    title: "Do you want to save the changes?",
                                     showDenyButton: true,
                                     showCancelButton: true,
                                     confirmButtonText: `Edit`,

@@ -7,9 +7,9 @@ export const TaskForm = () => {
     const { addTask, updateTask, getTaskById } = useContext(TaskContext)
     const { routines, getRoutines } = useContext(RoutineContext)
     const [task, setTask] = useState({
-        label: "",
-        time: 0,
-        routineId: 0,
+        // label: "",
+        // time: 0,
+        // routineId: 0,
     })
     const [isLoading, setIsLoading] = useState(true)
     const { taskId } = useParams()
@@ -81,6 +81,7 @@ export const TaskForm = () => {
                     <label htmlFor="time">Minutes For Task:</label>
                     <input
                         type="number"
+                        step="5"
                         id="time"
                         required
                         autoFocus
