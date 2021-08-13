@@ -42,9 +42,9 @@ export const RoutineItem = ({ routine }) => {
                 >
                     <div className="routine__description">
                         <h2 className="routine__label">{routine.label}</h2>
-                        <h5 className="routine__time">
+                        <h4 className="routine__time">
                             ~{Math.floor(totalHours)}h {totalMinutes}m
-                        </h5>
+                        </h4>
                     </div>
 
                     <div className="routine__options">
@@ -67,8 +67,8 @@ export const RoutineItem = ({ routine }) => {
                                 })
                             }}
                             xmlns="http://www.w3.org/2000/svg"
-                            width="48"
-                            height="32"
+                            width="50"
+                            height="50"
                             fill="currentColor"
                             class="bi bi-three-dots"
                             viewBox="0 0 16 16"

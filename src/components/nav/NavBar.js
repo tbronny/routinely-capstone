@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import Logo from "../Images/Logo.png"
 import "./NavBar.css"
 import { UserContext } from "../users/UserProvider"
+import { SimpleMenu } from "./SimpleMenu"
 
 export const NavBar = (props) => {
     const { users, getUsers } = useContext(UserContext)
@@ -19,10 +20,7 @@ export const NavBar = (props) => {
 
     return (
         <>
-            <nav
-                className="navbar bg-dark text-white flex-md-nowrap p-0 shadow"
-                id="topnav"
-            >
+            <nav className="navbar flex-md-nowrap p-0 shadow" id="topnav">
                 <ul className="nav nav-pills nav-fill">
                     <li className="nav-item">
                         <Link className="nav-link" to="/">
@@ -30,9 +28,10 @@ export const NavBar = (props) => {
                                 src={Logo}
                                 id="nav-logo"
                                 alt="logo"
-                                height={70}
-                                width={70}
+                                height={50}
+                                width={50}
                             />
+                            <h2>Routinely</h2>
                         </Link>
                     </li>
                 </ul>
@@ -41,34 +40,7 @@ export const NavBar = (props) => {
                         <i>Welcome, {currentUser?.firstName}!</i>
                     </b>
                 </h4>
-                <ul className="nav nav-pills nav-fill">
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/Explore">
-                            Explore
-                        </Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/About">
-                            About
-                        </Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/Contact">
-                            Contact
-                        </Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link
-                            className="nav-link"
-                            to="/login"
-                            onClick={() =>
-                                sessionStorage.removeItem("routinely_user")
-                            }
-                        >
-                            Logout
-                        </Link>
-                    </li>
-                </ul>
+                {SimpleMenu()}
             </nav>
         </>
     )
