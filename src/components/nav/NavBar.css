@@ -7,9 +7,20 @@
 .nav-link {
     display: block;
     color: white;
-    padding: 30px 30px;
+    padding: 1em 3em 1em 3em;
 }
 
 .nav-link:hover {
     color: rgba(255, 255, 255, 0.596);
+}
+
+.menu-link {
+    display: block;
+    color: black;
+    padding: 30px 30px;
+}
+
+.menu-link:hover {
+    color: rgba(70, 70, 70, 0.596);
+    text-decoration: none;
 }

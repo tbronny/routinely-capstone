@@ -22,7 +22,6 @@ export const Routinely = () => (
                         <>
                             <UserProvider>
                                 <NavBar />
-                                <h1 className="date">{displayDate()}</h1>
                                 <ApplicationViews />
                             </UserProvider>
                         </>

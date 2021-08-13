@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 3em;
+    margin: 2em 10em;
     padding: 2em;
     border-radius: 20px;
     background-color: rgb(104, 118, 133);
@@ -56,4 +56,11 @@
 .link:hover {
     color: darkgray;
     text-decoration: none;
+}
+
+.action {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 2em;
 }
