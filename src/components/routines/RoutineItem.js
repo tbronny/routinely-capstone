@@ -40,6 +40,9 @@ export const RoutineItem = ({ routine }) => {
                         history.push(`/tasks/${routine.id}`)
                     }}
                 >
+                    <div className="routine__icon">
+                        <h1 className="routine__emoji">{routine.icon}</h1>
+                    </div>
                     <div className="routine__description">
                         <h2 className="routine__label">{routine.label}</h2>
                         <h4 className="routine__time">

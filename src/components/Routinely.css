@@ -10,3 +10,7 @@ body {
     font-family: "Courier New", Courier, monospace;
     color: whitesmoke;
 }
+
+button-primary {
+    margin: 2em;
+}
