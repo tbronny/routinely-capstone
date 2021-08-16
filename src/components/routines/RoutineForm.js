@@ -1,17 +1,23 @@
 import React, { useState, useContext, useEffect } from "react"
 import { RoutineContext } from "./RoutineProvider"
 import { useHistory, useParams } from "react-router-dom"
+import { Picker } from "emoji-mart"
+import "emoji-mart/css/emoji-mart.css"
 
 export const RoutineForm = () => {
     const { addRoutine, updateRoutine, getRoutineById } =
         useContext(RoutineContext)
     const [routine, setRoutine] = useState({
         label: "",
+        icon: "",
         userId: 0,
     })
     const [isLoading, setIsLoading] = useState(true)
     const { routineId } = useParams()
     const history = useHistory()
+
+    const [input, setInput] = useState("")
+    const [showEmojis, setShowEmojis] = useState(false)
 
     useEffect(() => {
         if (routineId) {
@@ -41,15 +47,25 @@ export const RoutineForm = () => {
                 updateRoutine({
                     id: routine.id,
                     label: routine.label,
+                    icon: input,
                     userId: currentUserId,
                 }).then(() => history.push("/"))
             } else {
                 addRoutine({
                     label: routine.label,
+                    icon: input,
                     userId: currentUserId,
                 }).then(() => history.push("/"))
             }
         }
+    }
+
+    const addEmoji = (e) => {
+        let sym = e.unified.split("-")
+        let codesArray = []
+        sym.forEach((el) => codesArray.push("0x" + el))
+        let emoji = String.fromCodePoint(...codesArray)
+        setInput(input + emoji)
     }
 
     return (
@@ -69,6 +85,21 @@ export const RoutineForm = () => {
                         onChange={handleInputChange}
                     />
                 </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="label"></label>
+                    <input
+                        value={input}
+                        onChange={handleInputChange}
+                        type="text"
+                        required
+                        autoFocus
+                        className="form-control"
+                        placeholder="Icon"
+                    />
+                </div>
+                <Picker onSelect={addEmoji} />
             </fieldset>
             <button
                 className="btn btn-primary"
