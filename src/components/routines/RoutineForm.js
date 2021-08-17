@@ -88,7 +88,6 @@ export const RoutineForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="label"></label>
                     <input
                         value={input}
                         onChange={handleInputChange}
@@ -98,8 +97,8 @@ export const RoutineForm = () => {
                         className="form-control"
                         placeholder="Icon"
                     />
+                    <Picker onSelect={addEmoji} />
                 </div>
-                <Picker onSelect={addEmoji} />
             </fieldset>
             <button
                 className="btn btn-primary"
@@ -107,6 +106,14 @@ export const RoutineForm = () => {
                 onClick={handleClickSaveEvent}
             >
                 {routineId ? "Save Routine" : "Add Routine"}
+            </button>
+            <button
+                className="btn btn-secondary"
+                onClick={() => {
+                    history.push("/")
+                }}
+            >
+                Cancel
             </button>
         </form>
     )

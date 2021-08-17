@@ -70,9 +70,18 @@ export const Login = () => {
                         />
                     </fieldset>
                     <fieldset>
-                        <button type="submit">Sign in</button>
+                        <button className="btn btn-primary" type="submit">
+                            Sign in
+                        </button>
+                        <button
+                            className="btn btn-secondary"
+                            onClick={() => {
+                                history.push("/register")
+                            }}
+                        >
+                            Register for an account
+                        </button>
                     </fieldset>
-                    <Link to="/register">Register for an account</Link>
                 </form>
             </section>
             <section className="link--register"></section>

@@ -78,16 +78,16 @@ export const TaskForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="time">Minutes For Task:</label>
+                    <label htmlFor="time">Minutes For Task: </label>
                     <input
                         type="number"
-                        step="5"
+                        step="15"
                         id="time"
                         required
                         autoFocus
                         className="form-control"
                         placeholder="0"
-                        defaultValue={task.time}
+                        value={task.time}
                         onChange={handleInputChange}
                     />
                 </div>
@@ -98,6 +98,16 @@ export const TaskForm = () => {
                 onClick={handleClickSaveEvent}
             >
                 {taskId ? "Save Task" : "Add Task"}
+            </button>
+            <button
+                className="btn btn-secondary"
+                onClick={() => {
+                    taskId
+                        ? history.push(`/tasks/${task.routineId}`)
+                        : history.push(`/tasks/${routineId}`)
+                }}
+            >
+                Cancel
             </button>
         </form>
     )

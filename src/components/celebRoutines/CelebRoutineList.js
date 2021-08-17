@@ -13,18 +13,20 @@ export const CelebRoutineList = () => {
     }, [])
 
     return (
-        <>
+        <article className="celebRoutines">
             <div className="celebRoutine__head">
                 <h1>Featured Routines</h1>
             </div>
-            {celebRoutines.map((celebRoutine) => {
-                return (
-                    <CelebRoutineItem
-                        key={celebRoutine.id}
-                        celebRoutine={celebRoutine}
-                    />
-                )
-            })}
-        </>
+            <div className="celebRoutine__body">
+                {celebRoutines.map((celebRoutine) => {
+                    return (
+                        <CelebRoutineItem
+                            key={celebRoutine.id}
+                            celebRoutine={celebRoutine}
+                        />
+                    )
+                })}
+            </div>
+        </article>
     )
 }

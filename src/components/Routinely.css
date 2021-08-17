@@ -1,5 +1,5 @@
 form {
-    margin: 3em 30em 0em 30em;
+    margin: 3em 40em 0em 40em;
     padding: 2em;
     border-radius: 30px;
     background-color: lightslategrey;
@@ -9,8 +9,4 @@ body {
     background-color: rgb(87, 99, 112);
     font-family: "Courier New", Courier, monospace;
     color: whitesmoke;
-}
-
-button-primary {
-    margin: 2em;
 }
