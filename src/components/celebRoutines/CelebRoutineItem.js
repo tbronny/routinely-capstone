@@ -24,7 +24,7 @@ export const CelebRoutineItem = ({ celebRoutine }) => {
             </div>
             <div className="celebRoutine__bio">
                 <a href={celebRoutine.bio}>
-                    <i>Read More</i>
+                    <i className="readMore">Read More</i>
                 </a>
             </div>
         </article>

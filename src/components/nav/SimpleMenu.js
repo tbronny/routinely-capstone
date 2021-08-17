@@ -44,6 +44,11 @@ export const SimpleMenu = () => {
                 onClose={handleClose}
             >
                 <MenuItem>
+                    <Link className="menu-link" to="/">
+                        My Routines
+                    </Link>
+                </MenuItem>
+                <MenuItem>
                     <Link className="menu-link" to="/Explore">
                         Explore
                     </Link>

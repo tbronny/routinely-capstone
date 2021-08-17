@@ -2,13 +2,14 @@ import React, { useContext, useEffect, useState } from "react"
 import { CelebTaskContext } from "./CelebTaskProvider"
 import { CelebRoutineContext } from "../celebRoutines/CelebRoutineProvider"
 import { CelebTaskItem } from "./CelebTaskItem"
-import { useParams } from "react-router-dom"
+import { useHistory, useParams } from "react-router-dom"
 import "./CelebTasks.css"
 
 export const CelebTaskList = () => {
     const { celebTasks, getCelebTasks } = useContext(CelebTaskContext)
     const { celebRoutines, getCelebRoutines } = useContext(CelebRoutineContext)
     const { celebRoutineId } = useParams()
+    const history = useHistory()
 
     useEffect(() => {
         getCelebTasks().then(getCelebRoutines)
@@ -25,7 +26,14 @@ export const CelebTaskList = () => {
     return (
         <>
             <div className="celebTask__head">
-                <h1>{filteredCelebRoutine?.label}</h1>
+                <h1
+                    className="routinesLink"
+                    onClick={() => {
+                        history.push("/explore")
+                    }}
+                >
+                    {filteredCelebRoutine?.label}
+                </h1>
             </div>
             <div>
                 {filteredCelebTasks.map((celebTask) => {

@@ -30,3 +30,7 @@ input.larger {
     justify-content: space-between;
     margin: 50px;
 }
+
+.routinesLink {
+    cursor: pointer;
+}
