@@ -25,13 +25,18 @@ export const CelebTaskList = () => {
     return (
         <>
             <div className="celebTask__head">
-                <h1>{filteredCelebRoutine.label}</h1>
+                <h1>{filteredCelebRoutine?.label}</h1>
             </div>
-            {filteredCelebTasks.map((celebTask) => {
-                return (
-                    <CelebTaskItem key={celebTask.id} celebTask={celebTask} />
-                )
-            })}
+            <div>
+                {filteredCelebTasks.map((celebTask) => {
+                    return (
+                        <CelebTaskItem
+                            key={celebTask.id}
+                            celebTask={celebTask}
+                        />
+                    )
+                })}
+            </div>
         </>
     )
 }

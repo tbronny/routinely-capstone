@@ -1,7 +1,5 @@
 .celebRoutines {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
 }
 
 .celebRoutine {
@@ -9,7 +7,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 3em;
+    margin: 1em;
     padding: 2em;
     border-radius: 20px;
     background-color: rgb(104, 118, 133);
@@ -31,6 +29,11 @@
 .celebRoutine__head {
     display: flex;
     margin: 50px;
+}
+
+.celebRoutine__body {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .link {
