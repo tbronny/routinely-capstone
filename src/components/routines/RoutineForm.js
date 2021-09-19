@@ -99,22 +99,22 @@ export const RoutineForm = () => {
                     />
                     <Picker onSelect={addEmoji} />
                 </div>
+                <button
+                    className="btn btn-primary"
+                    disabled={isLoading}
+                    onClick={handleClickSaveEvent}
+                >
+                    {routineId ? "Save Routine" : "Add Routine"}
+                </button>
+                <button
+                    className="btn btn-secondary"
+                    onClick={() => {
+                        history.push("/")
+                    }}
+                >
+                    Cancel
+                </button>
             </fieldset>
-            <button
-                className="btn btn-primary"
-                disabled={isLoading}
-                onClick={handleClickSaveEvent}
-            >
-                {routineId ? "Save Routine" : "Add Routine"}
-            </button>
-            <button
-                className="btn btn-secondary"
-                onClick={() => {
-                    history.push("/")
-                }}
-            >
-                Cancel
-            </button>
         </form>
     )
 }

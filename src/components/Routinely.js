@@ -7,12 +7,6 @@ import { Register } from "./auth/Register"
 import { UserProvider } from "../components/users/UserProvider"
 import "./Routinely.css"
 
-const displayDate = () => {
-    const d = new Date()
-    const n = d.toLocaleString()
-    return n
-}
-
 export const Routinely = () => (
     <>
         <Route

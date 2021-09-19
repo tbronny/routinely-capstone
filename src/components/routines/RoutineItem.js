@@ -41,11 +41,33 @@ export const RoutineItem = ({ routine }) => {
                     }}
                 >
                     <div className="routine__icon">
-                        <h1 className="routine__emoji">{routine.icon}</h1>
+                        <h1
+                            className="routine__emoji"
+                            onClick={(event) => {
+                                if (event.target !== event.currentTarget) return
+                                history.push(`/tasks/${routine.id}`)
+                            }}
+                        >
+                            {routine.icon}
+                        </h1>
                     </div>
                     <div className="routine__description">
-                        <h2 className="routine__label">{routine.label}</h2>
-                        <h4 className="routine__time">
+                        <h2
+                            className="routine__label"
+                            onClick={(event) => {
+                                if (event.target !== event.currentTarget) return
+                                history.push(`/tasks/${routine.id}`)
+                            }}
+                        >
+                            {routine.label}
+                        </h2>
+                        <h4
+                            className="routine__time"
+                            onClick={(event) => {
+                                if (event.target !== event.currentTarget) return
+                                history.push(`/tasks/${routine.id}`)
+                            }}
+                        >
                             ~{Math.floor(totalHours)}h {totalMinutes}m
                         </h4>
                     </div>

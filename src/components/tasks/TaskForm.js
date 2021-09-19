@@ -91,24 +91,24 @@ export const TaskForm = () => {
                         onChange={handleInputChange}
                     />
                 </div>
+                <button
+                    className="btn btn-primary"
+                    disabled={isLoading}
+                    onClick={handleClickSaveEvent}
+                >
+                    {taskId ? "Save Task" : "Add Task"}
+                </button>
+                <button
+                    className="btn btn-secondary"
+                    onClick={() => {
+                        taskId
+                            ? history.push(`/tasks/${task.routineId}`)
+                            : history.push(`/tasks/${routineId}`)
+                    }}
+                >
+                    Cancel
+                </button>
             </fieldset>
-            <button
-                className="btn btn-primary"
-                disabled={isLoading}
-                onClick={handleClickSaveEvent}
-            >
-                {taskId ? "Save Task" : "Add Task"}
-            </button>
-            <button
-                className="btn btn-secondary"
-                onClick={() => {
-                    taskId
-                        ? history.push(`/tasks/${task.routineId}`)
-                        : history.push(`/tasks/${routineId}`)
-                }}
-            >
-                Cancel
-            </button>
         </form>
     )
 }
