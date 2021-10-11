@@ -4,6 +4,7 @@ import AddIcon from "@material-ui/icons/Add"
 import { RoutineItem } from "./RoutineItem"
 import "./Routines.css"
 import { RoutineActionButtons } from "./RoutineActionButton"
+import { EventBusy } from "@material-ui/icons"
 
 export const RoutineList = () => {
     const { routines, getRoutines } = useContext(RoutineContext)
@@ -19,8 +20,11 @@ export const RoutineList = () => {
     const ConditionalRender = () => {
         if (currentRoutines.length < 1) {
             return (
-                <div>
-                    <h4 className="message">
+                <div className="message">
+                    <h4>
+                        <EventBusy fontSize="large" />
+                        <br />
+                        <br />
                         You have a fresh start!
                         <br />
                         <br />

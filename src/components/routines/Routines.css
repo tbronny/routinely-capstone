@@ -68,5 +68,13 @@
 }
 
 .message {
-    padding-left: 3em;
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+}
+
+.eventBusy {
+    size: 100px;
 }
